@@ -1,0 +1,94 @@
+import java.util.*;
+import java.lang.*;
+public class Main
+{
+     public static void RandomGuess(int trials, int number)
+    {
+        Scanner sc= new Scanner(System.in);
+        while(trials>0)
+        {
+            System.out.println("Enter your guess: ");
+            int guess=sc.nextInt();
+            if(guess==number)
+            {
+                System.out.println("Great job. Your guess is correct!!");
+                break;
+            }
+            else if(guess<number)
+            {
+                System.out.println("Incorrect! Try a greater number. Attemps left: "+(trials-1));
+                trials--;
+            }
+            else
+            {
+                System.out.println("Incorrect! Try a smaller number. Attempts left: "+(trials-1));
+                trials--;
+            }
+        }
+        if(trials==0)
+        {
+            System.out.println("Game OVER! You could not guess the number right.");
+        }
+    }
+    public static void main(String args[])
+    {
+        Scanner sc= new Scanner(System.in);
+        int level;
+        int number=(int)(Math.random()*(100-10)+10);
+        System.out.print("WELCOME! This is a number guessing game.");
+        System.out.println("The System will generate a random number. Try to guess it within a number of attempts.");
+        System.out.println("BEST OF LUCK");
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Game Started!");
+        System.out.print("Generating number");
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.print(".");
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.print(".");
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(".");
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Select difficulty level: ");
+        System.out.println("1. Easy: 10 attempts");
+        System.out.println("2. Medium: 8 attempts");
+        System.out.println("3. Hard: 5 attempts");
+        level=sc.nextInt();
+        int trials=0;
+        if(level==1)
+        {
+            trials=10;
+            RandomGuess(trials,number);
+        }
+        else if(level==2)
+        {
+            trials=8;
+            RandomGuess(trials,number);
+        }
+        else if(level==3)
+        {
+            trials=5;
+            RandomGuess(trials,number);
+        }
+        else System.out.println("Invalid Input");
+    }
+}
